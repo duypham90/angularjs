@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { PostComponent } from './post/post.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    NavbarComponent
+    NavbarComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
