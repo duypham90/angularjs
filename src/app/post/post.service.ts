@@ -1,13 +1,8 @@
 import { Injectable } from "@angular/core";
-import { HttpHeaders, HttpClient } from "@angular/common/http";
+import { HttpHeaders, HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
-
-// import Post Interface
+import { NEW_POST }   from '../api/constant';
 import { IPost } from './post';
-
-const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
 
 export interface IPost {
     id: number;
@@ -20,11 +15,13 @@ export interface IPost {
 
 @Injectable()
 export class PostService {
-    private apiUrl = 'https://tinanime.com/api/news/?offset=12&limit=10';  // URL to web api
-
     constructor(private http: HttpClient) { }
 
-    public getPost(offset: number, limit: number): Observable<IPost[]> {
-        return this.http.get<IPost[]>(this.apiUrl);
+    public getPost(offset, limit): Observable<IPost[]> {
+        const params = new HttpParams()
+            .set('offset', offset)
+            .set('limit', limit);
+
+        return this.http.get<IPost[]>(NEW_POST, { params });
     }
 }

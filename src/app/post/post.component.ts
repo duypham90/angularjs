@@ -7,18 +7,20 @@ import { PostService } from './post.service';
     templateUrl: './post.component.html',
     styleUrls: ['./post.component.css'],
     encapsulation: ViewEncapsulation.None,
-    providers: [ PostService ]
+    providers: [PostService]
 })
 
 @Injectable()
 export class PostComponent implements OnInit {
-    
+
     private posts: IPost[] = [];
     private isLoading: boolean = false;
+    private isShowBtnLoadMore: boolean = true;
     private offset: number = 0;
     private limit: number = 20;
-    
-    constructor(private postService: PostService ) { }
+    private loadingItem: number = 8;
+
+    constructor(private postService: PostService) { }
 
     ngOnInit() {
         this.getPost();
@@ -26,21 +28,28 @@ export class PostComponent implements OnInit {
 
     // /** GET new from the server */
     private getPost(): void {
-        this.isLoading = true;
         this.makeRequest(this.offset, this.limit);
     }
 
     private loadMore(): void {
         this.offset = this.offset + this.limit;
-        console.log(this.offset, this.limit);
         this.makeRequest(this.offset, this.limit);
     }
 
     private makeRequest(offset: number, limit: number): void {
         this.isLoading = true;
+        this.isShowBtnLoadMore = false;
         this.postService.getPost(offset, limit).subscribe(data => {
+            // setTimeout(() => {
+
+            // }, 5000);
             this.posts.push(...data);
             this.isLoading = false;
-        }, err => console.log(err));
+            this.isShowBtnLoadMore = true;
+        }, err => {
+            this.isLoading = false;
+            this.isShowBtnLoadMore = true;
+            alert('error');
+        });
     }
 }

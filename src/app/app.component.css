@@ -156,11 +156,17 @@ body {
 
 }
 
-.btn-load-more {
+.btn-fixed-right {
     position: fixed;
     right: 20px;
     bottom: 20px;
     z-index: 1000;
+}
+
+.btn-load-more{
+    text-align: center;
+    margin: 20px auto;
+    display: block;
 }
 
 .btn-load-more button {

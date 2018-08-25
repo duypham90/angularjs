@@ -1,12 +1,15 @@
-<nav class="navbar nav-tick">
+<nav class="navbar nav-tick" #stickyMenu [class.affix] = "sticky">
     <div class="container">
         <ul class="nav-menu">
             <li><a routerLink="/">Home</a></li>
-            <li><a routerLink="/">NEW</a></li>
-            <li><a routerLink="/">HOT</a></li>
-            <li><a routerLink="/">ANIME</a></li>
-            <li><a routerLink="/">test</a></li>
-            <li><a routerLink="/">test</a></li>
+            <li><a routerLink="/post">Đề cử anime</a></li>
+            <li><a routerLink="/host">Tin tức anime</a></li>
+            <li><a routerLink="/">Tin tức manga</a></li>
+            <li><a routerLink="/">Cosplay</a></li>
+            <li><a routerLink="/">Văn hóa Nhật Bản</a></li>
+            <li><a routerLink="/">Review & Spoiler</a></li>
+            <li><a routerLink="/">Fanmade</a></li>
+            <li><a routerLink="/">Tổng hợp</a></li>
         </ul>
     </div>
 </nav>

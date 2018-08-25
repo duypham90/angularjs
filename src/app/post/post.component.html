@@ -19,10 +19,11 @@
                 </div>
             </div>
         </div>
+        <app-place-holder *ngIf="isLoading" [itemRepeat]="loadingItem"></app-place-holder>
     </div>
-    <div class="row" key="1">
+    <div class="row">
         <div class="btn-load-more">
-            <button (click)="loadMore()">LOAD MORE</button>
+            <button *ngIf="isShowBtnLoadMore" (click)="loadMore()">LOAD MORE</button>
         </div>
     </div>
 </div>
