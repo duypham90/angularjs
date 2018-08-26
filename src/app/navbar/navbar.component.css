@@ -26,13 +26,13 @@
 }
 
 .nav-menu li {
+    position: relative;
     display: inline-block;
     line-height: 50px;
-    border-bottom: 2px solid transparent;
     transition: all .5 ease;
 }
 
-.nav-menu li:first-child {
+.nav-menu >li:first-child {
     float: left;
 }
 
@@ -48,8 +48,30 @@
     line-height: 50px;
     padding: 0 10px;
     transition: all .5 ease;
+    -webkit-transition: all .5 ease;
+    -moz-transition: all .5 ease;
+    -ms-transition: all .5 ease;
+    -o-transition: all .5 ease;
 }
 
 .navbar.affix .nav-menu li a {
     color: #fff;
+}
+
+.sub-menu {
+    position: absolute;
+    z-index: 1001;
+    background: #fff;
+    min-width: 200px;
+    top: calc(100% + 3px);
+    left: calc(50% - 170px);
+    border-top: 3px solid #d8a942;
+}
+
+.sub-menu li {
+    display: block;
+}
+.sub-menu li a {
+    display: block;
+    text-align: center
 }
