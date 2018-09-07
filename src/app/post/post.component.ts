@@ -5,7 +5,7 @@ import { PostService } from './post.service';
 @Component({
     selector: 'app-post',
     templateUrl: './post.component.html',
-    styleUrls: ['./post.component.css'],
+    // styleUrls: ['./post.component.css'],
     encapsulation: ViewEncapsulation.None,
     providers: [PostService]
 })

@@ -29,21 +29,20 @@
     position: relative;
     display: inline-block;
     line-height: 50px;
-    transition: all .5 ease;
+
+    transition: all .3s ease;
 }
 
 .nav-menu >li:first-child {
     float: left;
 }
 
-.nav-menu li:hover {
-    border-bottom: 2px solid #fff;
-}
-
 .nav-menu li a {
-    display: inline-block;
+    display: block;
+    cursor: pointer;
     font-size: 13px;
     color: #d8a942;
+    border-bottom: 2px solid transparent;
     text-decoration: none;
     line-height: 50px;
     padding: 0 10px;
@@ -54,18 +53,48 @@
     -o-transition: all .5 ease;
 }
 
+.nav-menu li a:hover {
+    border-bottom: 2px solid #d8a942;
+}
+
+.nav-menu li a.is-active:after {
+    position:absolute;
+    content:'';
+    left: 0;
+    width:60px;
+    height: 3px;
+    background: #fff;
+    bottom: -3px;
+    z-index: 1002;
+}
+
 .navbar.affix .nav-menu li a {
     color: #fff;
 }
 
+.navbar.affix .nav-menu li a:hover {
+    border-bottom: 2px solid #fff;
+}
+
 .sub-menu {
+    display: none;
     position: absolute;
     z-index: 1001;
     background: #fff;
     min-width: 200px;
-    top: calc(100% + 3px);
-    left: calc(50% - 170px);
+    top: calc(100%);
+    left: calc(50% - 168px);
     border-top: 3px solid #d8a942;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.nav-menu li a.is-active + ul.sub-menu {
+    display: block;
+}
+
+.navbar.affix .sub-menu {
+    border-top: 3px solid #d8a942;
+    background: rgba(0,0,0,.7);
 }
 
 .sub-menu li {

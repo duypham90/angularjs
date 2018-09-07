@@ -11,7 +11,7 @@
             <li><a routerLink="/">Fanmade</a></li>
             <li><a routerLink="/">Tổng hợp</a></li>
             <li>
-                <a class="user-login user-avatar">USER</a>
+                <a class="user-login user-avatar {{ isActive ? 'is-active' : '' }}" (click)="activeMenu()">USER</a>
                 <ul class="sub-menu">
                     <li><a>Facebook</a></li>
                     <li><a>Google</a></li>

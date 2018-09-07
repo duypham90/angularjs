@@ -11,10 +11,15 @@ export class NavbarComponent implements OnInit {
 
     sticky: boolean = false;
     offsetTop: number = 100;
+    isActive: boolean = false;
 
     constructor() { }
 
     ngOnInit() {
+    }
+
+    private activeMenu(): void {
+       this.isActive = !this.isActive;
     }
 
     @HostListener('window:scroll', ['$event'])
