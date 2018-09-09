@@ -41,8 +41,10 @@ export class PostComponent implements OnInit {
         this.isShowBtnLoadMore = false;
         this.postService.getPost(offset, limit).subscribe(data => {
             // setTimeout(() => {
-
-            // }, 5000);
+            //     this.posts.push(...data);
+            //     this.isLoading = false;
+            //     this.isShowBtnLoadMore = true;
+            // }, 1000000);
             this.posts.push(...data);
             this.isLoading = false;
             this.isShowBtnLoadMore = true;

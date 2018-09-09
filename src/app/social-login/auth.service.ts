@@ -26,6 +26,7 @@ export class AuthServiceConfig {
 export class AuthService {
 
     private static readonly LOGIN_PROVIDER_NOT_FOUND = 'Login provider not found';
+    private static readonly ERR_NOT_LOGGED_IN = 'Not logged in';
 
     private providers: Map<string, LoginProvider>;
 
@@ -67,6 +68,10 @@ export class AuthService {
 
     signOut(): Promise<any> {
         return new Promise((resolve, reject) => {
+            if (!this._user) {
+                reject(AuthService.ERR_NOT_LOGGED_IN);
+            }
+
             if (this._user && this._user.provider) {
                 let providerId = this._user.provider;
                 let providerObject = this.providers.get(providerId);
@@ -82,5 +87,4 @@ export class AuthService {
             }
         });
     }
-
 }

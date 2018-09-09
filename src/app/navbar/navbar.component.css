@@ -38,7 +38,9 @@
 }
 
 .nav-menu li a {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     font-size: 13px;
     color: #d8a942;
@@ -51,6 +53,66 @@
     -moz-transition: all .5 ease;
     -ms-transition: all .5 ease;
     -o-transition: all .5 ease;
+}
+
+.nav-menu li a.user-avatar .icon-user {
+    border-radius: 50%;
+    cursor: pointer;
+    color: #c0c0c0;
+    background: #c0c0c0;
+    box-shadow: 0 0 5px #ccc;
+    transition: width .5s,height .5s;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    -ms-border-radius:;
+    -o-border-radius:;
+}
+
+.icon-avatar {
+    z-index: 100;
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+}
+
+.pulsing-circle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+.pulsing-circle .circle {
+    border-radius: 50%;
+    background-color: deepskyblue;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    opacity: 0;
+    animation: scaleIn 4s infinite cubic-bezier(.36, .11, .89, .32);
+    -webkit-animation: scaleIn 4s infinite cubic-bezier(.36, .11, .89, .32);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(.5, .5);
+        opacity: .5;
+    }
+    to {
+        transform: scale(2.5, 2.5);
+        opacity: 0;
+        -webkit-transform: scale(2.5, 2.5);
+        -moz-transform: scale(2.5, 2.5);
+        -ms-transform: scale(2.5, 2.5);
+        -o-transform: scale(2.5, 2.5);
+    }
+}
+
+.nav-menu li a.user-avatar img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
 }
 
 .nav-menu li a:hover {
@@ -100,6 +162,7 @@
 .sub-menu li {
     display: block;
 }
+
 .sub-menu li a {
     display: block;
     text-align: center
